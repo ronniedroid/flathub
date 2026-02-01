@@ -1,77 +1,77 @@
 {
-  "id": "io.github.sitraorg.sitra",
-  "runtime": "org.gnome.Platform",
-  "runtime-version": "49",
-  "sdk": "org.gnome.Sdk",
-  "command": "sitra",
-  "finish-args": [
-    "--share=network",
-    "--share=ipc",
-    "--socket=fallback-x11",
-    "--device=dri",
-    "--socket=wayland",
-    "--filesystem=~/.local/share/fonts:create"
-  ],
-  "build-options": {
-    "append-path": "/usr/lib/sdk/vala/bin",
-    "prepend-ld-library-path": "/usr/lib/sdk/vala/lib"
-  },
-  "cleanup": [
-    "/include",
-    "/lib/pkgconfig",
-    "/man",
-    "/share/doc",
-    "/share/gtk-doc",
-    "/share/man",
-    "/share/pkgconfig",
-    "/share/vala",
-    "*.la",
-    "*.a"
-  ],
-  "modules": [
-    {
-      "name": "libgee",
-      "buildsystem": "autotools",
-      "config-opts": [
-        "--disable-introspection"
-      ],
-      "sources": [
-        {
-          "type": "archive",
-          "url": "https://download.gnome.org/sources/libgee/0.20/libgee-0.20.8.tar.xz",
-          "sha256": "189815ac143d89867193b0c52b7dc31f3aa108a15f04d6b5dca2b6adfad0b0ee",
-          "x-checker-data": {
-            "type": "gnome",
-            "name": "libgee"
-          }
-        }
-      ]
+    "id": "io.github.sitraorg.sitra",
+    "runtime": "org.gnome.Platform",
+    "runtime-version": "49",
+    "sdk": "org.gnome.Sdk",
+    "command": "sitra",
+    "finish-args": [
+        "--share=network",
+        "--share=ipc",
+        "--socket=fallback-x11",
+        "--device=dri",
+        "--socket=wayland",
+        "--filesystem=~/.local/share/fonts:create"
+    ],
+    "build-options": {
+        "append-path": "/usr/lib/sdk/vala/bin",
+        "prepend-ld-library-path": "/usr/lib/sdk/vala/lib"
     },
-    {
-      "name" : "libsitra",
-      "builddir" : true,
-      "buildsystem" : "meson",
-      "sources" : [
+    "cleanup": [
+        "/include",
+        "/lib/pkgconfig",
+        "/man",
+        "/share/doc",
+        "/share/gtk-doc",
+        "/share/man",
+        "/share/pkgconfig",
+        "/share/vala",
+        "*.la",
+        "*.a"
+    ],
+    "modules": [
         {
-          "type" : "git",
-          "url" : "https://github.com/sitraorg/libsitra.git",
-          "tag": "v0.1.0",
-          "commit": "d804cb7aa3030dc32a951b2dd2eb11aa330e2601"
-        }
-      ]
-    },
-    {
-      "name": "sitra",
-      "builddir": true,
-      "buildsystem": "meson",
-      "sources": [
+            "name": "libgee",
+            "buildsystem": "autotools",
+            "config-opts": [
+                "--disable-introspection"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/libgee/0.20/libgee-0.20.8.tar.xz",
+                    "sha256": "189815ac143d89867193b0c52b7dc31f3aa108a15f04d6b5dca2b6adfad0b0ee",
+                    "x-checker-data": {
+                        "type": "gnome",
+                        "name": "libgee"
+                    }
+                }
+            ]
+        },
         {
-          "type": "git",
-          "url": "https://github.com/sitraorg/sitra.git",
-          "tag": "v0.1.0",
-	      "commit": "489b454480a852b95b297f7868f82bca101d8683"
+            "name": "libsitra",
+            "builddir": true,
+            "buildsystem": "meson",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/sitraorg/libsitra.git",
+                    "tag": "v0.1.0",
+                    "commit": "d804cb7aa3030dc32a951b2dd2eb11aa330e2601"
+                }
+            ]
+        },
+        {
+            "name": "sitra",
+            "builddir": true,
+            "buildsystem": "meson",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/sitraorg/sitra.git",
+                    "tag": "v0.1.0",
+                    "commit": "489b454480a852b95b297f7868f82bca101d8683"
+                }
+            ]
         }
-      ]
-    }
-  ]
+    ]
 }
